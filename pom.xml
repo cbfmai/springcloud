@@ -30,4 +30,12 @@
         <module>crawler-client</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.29</version>
+        </dependency>
+    </dependencies>
+
 </project>
