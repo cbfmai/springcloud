@@ -1,0 +1,19 @@
+.skb{
+	z-index:2000;position: absolute;top:0px;left:0px;border:2px solid #EEECFF;
+	font-family: "ËÎÌå",Georgia,"Times New Roman",Times,serif;-moz-user-select:none;
+	-khtml-user-select:none;-webkit-user-select:ignore;
+}
+.skbhead {
+    background-color: #CCCCCC;color: #333333;
+}
+.skbbody{
+	font-size: 20px;text-align:center;vertical-align:middle;
+}
+.skbbout{
+	background-color: #6BC6C6;
+    color: #333333;
+}
+.skbbover{
+	background-color: #0A96A6;
+    color: #FFFFFF;
+}
