@@ -16,8 +16,8 @@
         var basepath = 'https://ipcrs.pbccrc.org.cn/';
     </script>
     <script type="text/javascript" src="https://ipcrs.pbccrc.org.cn/js/skb.js"></script>
-    <script language="javascript" src="https://ipcrs.pbccrc.org.cn/js/jquery.js"></script>
     <script type="text/javascript" src="https://ipcrs.pbccrc.org.cn/js/skb_1.js"></script>
+    <script language="javascript" src="https://ipcrs.pbccrc.org.cn/js/jquery.js"></script>
     <script language="javascript" src="https://ipcrs.pbccrc.org.cn/js/crypto-js.js"></script>
     <script language="javascript" src="https://ipcrs.pbccrc.org.cn/js/PassGuardCtrl.js"></script>
     <script language="javascript" src="https://ipcrs.pbccrc.org.cn/js/thickbox.js"></script>
@@ -66,7 +66,7 @@
             pgeCert: "3082010A0282010100A5875466E166609505D3BB4C51B03F8722F59FA317A2CDC94D83F85335F01EF986DA43C0FC02FDB056DE0DCD24D70F7755CF4D130D92B0AC347CD3AE69434E74212B57819867BC3AF6CFB5D343544082AA72A4751843305EF83417635D93CDE2B5DF8572FADB1CB56491D41368020AE787B2F6DE1D42193BF57B041198AF54A3878941F68ACE018634663D6E211D587BC373954A8C00425838493CB828E2493DF3DB2653C8E46399F88AB453D217A7FFD628A3F12BD0C4BAB9555C095C1013C60F2ADF1DCEF1845D764EFD2A25084A27B3FEC5B8121B08F8F94F4F14146F43BC2AF93C406EDE8F1DAE717FC512FF4B08E0D05A7223A5F8548FC14A6D9CF6E4030203010001",
             pgeClass: "ocx_style",//控件css样式
             pgeInstallClass: "ocx_style",//针对安装或升级的css样式
-            pgeOnkeydown: "FormSubmit()",//回车键响应函数，需焦点在控件中才能响应
+            pgeOnkeydown: "formSubmit()",//回车键响应函数，需焦点在控件中才能响应
             pgeOnfocus: "pgeFocus()",//监控光标切入密码控件框
             pgeOnblur: "pgeBlur()",//监控光标切出密码控件框
             pgeWindowID: "password" + new Date().getTime() + 1,
@@ -92,7 +92,7 @@
             $("lic").html(pgeditor.setLicense());
         }
 
-        function FormSubmit() {
+        function formSubmit() {
             $.ajax({
                 cache: false,
                 type: "post",
@@ -100,6 +100,7 @@
                 url: basepath + "userReg.do?method=getSrandNum&num=" + Math.random(),
                 dataType: "text",
                 success: function (result) {
+                    console.log(JSON.stringify(result));
                     pgeditor.pwdSetSk(result);
                 }
             });
@@ -125,10 +126,7 @@
                 <input type="hidden" name="method" value="login"/>
                 <input type="hidden" name="date" value="1526289914918"/>
                 <div class="erro_div3">
-		      			<span>
-
-
-	                   	</span>
+                    <span></span>
                 </div>
                 <div class="form-group">
                     <div class="lable lable1">登录名：</div>
@@ -161,7 +159,7 @@
                     <div>
                         <input class="inputText text3 left" maxLength="6" type="text" id="_@IMGRC@_" name="_@IMGRC@_"
                                onfocus="if(document.getElementById('_@MSG@_')!=null)document.getElementById('_@MSG@_').innerHTML='';">
-                        <img src="/imgrc.do?0.2124992797500913" id="imgrc" class="yzm_img"/>
+                        <img src="https://ipcrs.pbccrc.org.cn/imgrc.do?0.2124992797500913" id="imgrc" class="yzm_img"/>
                         <a class="yzm_a" href="###"
                            onclick="document.getElementById('imgrc').src='/imgrc.do?a='+new Date().getTime()+';'">看不清，换一个</a>
                         <script>document.getElementById('imgrc').style.display = '';</script>
@@ -173,7 +171,7 @@
                 <div class="form-group mar_top_30">
                     <div class="lable lable1"></div>
                     <div class="inputBox">
-                        <input type="submit" class="inputBtn btn2" value="登录" onclick="FormSubmit();"/>
+                        <input type="submit" class="inputBtn btn2" value="登录" onclick="formSubmit();"/>
                     </div>
                 </div>
                 <input type="hidden" id="lic"/>

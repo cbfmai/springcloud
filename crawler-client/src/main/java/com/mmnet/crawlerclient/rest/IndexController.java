@@ -14,6 +14,7 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpServletRequest request, Model model) {
+        // UA (Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko)
         model.addAttribute("name", "Dear");
         return "index";
     }
